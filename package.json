@@ -1,0 +1,32 @@
+{
+    "name": "starting_code",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "postinstall": "npm run client:build",
+        "client:dev": "react-scripts start",
+        "client:build": "react-scripts build",
+        "server:dev": "nodemon index.js",
+        "db:build": "node ./db/init_db",
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+    },
+    "proxy": "http://localhost:5000",
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}
