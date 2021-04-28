@@ -1,0 +1,250 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+  }
+  
+  #app {
+    height: 100%;
+   
+  }
+  
+  .appBar {
+    display: flex;
+    background-color: rgb(59, 67, 92);
+  }
+  
+  .toolBar {
+    background-color:grey;
+  }
+  
+  .routeLinks {
+    text-decoration: none;
+  }
+  
+  .loginLink {
+    color: white;
+    border: 1px solid black;
+    background-color: rgb(64, 87, 135);
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .loginLink:hover {
+    background-color: rgb(2, 2, 2);
+  }
+  
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+  }
+  
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 100px;
+  }
+  
+  .logoutBtn {
+    color: white;
+    border: 1px solid black;
+    background-color: rgb(64, 87, 135);
+    padding: 15px;
+    border-radius: 10px;
+  }
+  
+  .logoutBtn:hover {
+    background-color: rgb(2, 2, 2);
+  }
+  
+  .routines {
+    margin: 20px;
+    background-color: #222222;
+    padding: 5px;
+    border-radius: 10px;
+    color: #cecece;
+  }
+  
+  .activities {
+    margin: 20px;
+  }
+  
+  .routinePage {
+    display: flex;
+  
+  }
+  
+  .routineName {
+    padding-bottom: 5px;
+    text-decoration: underline;
+  }
+  
+  .activityName {
+    padding-bottom: 5px;
+    text-decoration: underline;
+  }
+  
+  .activitiesItems {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px;
+    gap: 5px;
+  }
+  
+  .addedActivities {
+    border: 1px solid black;
+    padding: 5px;
+  }
+  
+  .myRoutines {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px;
+  }
+  
+  .homePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+  
+  .homePage h1 {
+    font-size: 75px;
+  }
+  
+  .homePage p {
+    font-size: 40px;
+    width: 50%;
+  }
+  
+  .routinePage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px;
+    gap: 5px;
+  }
+  
+  .form-style-8 {
+    font-family:Arial;
+    width: 500px;
+    padding: 30px;
+    background: #ffffff;
+    margin: 50px auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -moz-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+    -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  }
+  .form-style-8 h2 {
+    background: rgb(59, 67, 92);
+    text-transform: uppercase;
+    font-family:Arial;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 100;
+    padding: 20px;
+    margin: -30px -30px 30px -30px;
+  }
+  .form-style-8 input[type="text"],
+  .form-style-8 input[type="date"],
+  .form-style-8 input[type="datetime"],
+  .form-style-8 input[type="email"],
+  .form-style-8 input[type="number"],
+  .form-style-8 input[type="search"],
+  .form-style-8 input[type="time"],
+  .form-style-8 input[type="url"],
+  .form-style-8 input[type="password"],
+  .form-style-8 textarea,
+  .form-style-8 select {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    outline: none;
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    margin-bottom: 10px;
+      font-family:Arial;
+    height: 45px;
+  }
+  .form-style-8 textarea {
+    resize: none;
+    overflow: hidden;
+  }
+  .form-style-8 button {
+    -moz-box-shadow: inset 0px 1px 0px 0px #3f51b5;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #3f51b5;
+    box-shadow: inset 0px 1px 0px 0px #3f51b5;
+    background-color: rgb(59, 67, 92);
+    border: 1px solid rgb(59, 67, 92);
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family:Arial;
+    font-size: 14px;
+    padding: 8px 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .form-style-8 button:hover {
+    background: linear-gradient(to bottom, #4f5eb1 5%, #4f5eb1 100%);
+    background-color: #4f5eb1;
+  }
+  
+  .submitRegister {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .submitBtn {
+    margin-bottom: 20px;
+  }
+  
+  .myActivities {
+    border: 1px solid black;
+    background-color: rgb(99, 99, 99);
+    border-radius: 10px;
+    padding: 5px;
+  }
+  
+  .btn{
+    margin-top: 5px;
+    display: inline-block;
+    padding: 2px;
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #4eb5f1;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  
+  .btn:hover {
+    background-color: #4095c6;
+  }
+  
+  .formInput {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
