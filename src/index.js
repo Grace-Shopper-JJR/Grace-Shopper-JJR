@@ -1,12 +1,12 @@
-import React from 'react'; // this enables jsx
-import ReactDOM from '...react-dom'; // this allows us to attach the APP
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+// import './index.css';
 
-  
 
 ReactDOM.render(
-  <Router>
-    <App/>
-  </Router>,
-  document.getElementById('App')
-)
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+);
