@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
 import { useEffect } from 'react';
-import { getAllMerchandise } from '../../routes';
+// import { getAllMerchandise } from '../api';
 import ProductCard from './ProductCard';
 
 

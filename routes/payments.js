@@ -1,5 +1,5 @@
 const paymentsRouter = require('express').Router();
-const { createPayment, deletePayment, getPaymentsByUserId, updatePayments } = require('../../db/db_methods');
+const { createPayment, deletePayment, getPaymentsByUserId, updatePayments } = require('../db');
 const { requireUser } = require('./utils');
 
 paymentsRouter.use((req, res, next) => {

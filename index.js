@@ -7,7 +7,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3000;
 const server = express();
 
-const apiRouter = require('../api');
+const apiRouter = require('./routes');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 // const { startDb, testDB } = require('./db/seed');

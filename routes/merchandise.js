@@ -1,17 +1,33 @@
 const merchRouter = require('express').Router();
 
-const { getAllMerchandise, getMerchandiseByCategory, getMerchandiseById, getMerchandiseByName, getMerchandiseReviewByUserId, createMerchandise, deleteMerchandise, deleteMerchandiseReview, addCategory, updateMerchandise, createMerchandiseReview, searchMerchandise } = require('../db')
+const { 
+    getAllMerchandise, 
+    getMerchandiseByCategory, 
+    getMerchandiseById, 
+    getMerchandiseByName, 
+    getMerchandiseReviewByUserId, 
+    createMerchandise, 
+    deleteMerchandise, 
+    deleteMerchandiseReview, 
+    addCategory, 
+    updateMerchandise, 
+    createMerchandiseReview, 
+    searchMerchandise } = require('../db')
 
 merchRouter.get('/', async (req, res, next) => {
 
+   try {
     const merch = await getAllMerchandise();
 
     res.send({
         message: 'successfully retrieved all merchandise',
         status: true,
         merch
-
     })
+
+   } catch (error) {
+       next(error)
+   }
 
 })
 

@@ -35,20 +35,23 @@ usersRouter.get('/me', requireUser, async (req, res, next) => {
 });
 
 usersRouter.post('/register', async (req, res, next) => {
+
     const {
         username,
         password,
-        firstname,
-        lastname,
-        street,
-        city,
-        state,
-        zip,
-        save_pmt,
-        shipping
+        // firstname, - commenting out for now to make testing simpler.
+        // lastname,
+        // street,
+        // city,
+        // state,
+        // zip,
+        // save_pmt,
+        // shipping
     } = req.body;
+
     console.log('Req.body: ', req.body);
     const SALT_COUNT = 10;
+
     try {
         const _user = await getUserByUsername(username);
         if (_user) {

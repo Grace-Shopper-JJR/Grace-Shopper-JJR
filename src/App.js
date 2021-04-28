@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+// import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import theme from './theme'
+// import theme from './theme'
 
 import {
     BrowserRouter as Router,
@@ -13,7 +13,7 @@ import {
 import {
     ProductCard,
     Products
-} from './index';
+} from './components/index';
 
 const App = () => {
 
