@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-// import theme from './theme'
+import theme from './theme'
 
 import {
     BrowserRouter as Router,
@@ -11,8 +11,11 @@ import {
 } from 'react-router-dom';
 
 import {
+    Menu,
     ProductCard,
-    Products
+    Products,
+    Login,
+    Register
 } from './components/index';
 
 const App = () => {
@@ -21,9 +24,10 @@ const App = () => {
 
 
     return (
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
             <CssBaseline>
                 <Router>
+                <Menu/>
                     <Route exact path="/">
                         <Products
                             products={products}
