@@ -18,7 +18,6 @@ const {
     updateUserPreferences,
     getUserPreferencesByUserId,
     createPayment,
-    createBlog,
     createWishListByUserId,
     getWishListByUserId,
 

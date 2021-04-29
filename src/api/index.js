@@ -1,4 +1,4 @@
-import axios from 'axios';
+const { default: axios } = require('axios');
 
 // Users //
 
@@ -34,13 +34,13 @@ export async function loginUser(username, password) {
 
 // Merchandise //
 
-export async function getMerch() {
+export async function getAllMerchandise() {
 
     try {
 
-        const response = await axios.get(`/api/merchandise`)
-
-        return response;
+        const {response, data} = await axios.get(`/api/merchandise`)
+        console.log(data, 'from getAllMerchandise')
+        return data;
 
     } catch (error) {
         throw error;

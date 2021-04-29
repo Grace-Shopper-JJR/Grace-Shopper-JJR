@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Grid from '@material-ui/core/Grid';
-import { useEffect } from 'react';
-// import { getAllMerchandise } from '../api';
+import { useEffect, useState } from 'react';
+import { getAllMerchandise } from '../api';
 import ProductCard from './ProductCard';
 
 
@@ -13,29 +13,27 @@ const useStyles = makeStyles({
   },
 });
 
-const Products = ({products, setProducts}) => {
+const ProductPage = ({merchandise, setMerchandise}) => {
 
 const classes = useStyles();
 
 
 useEffect(() => {
     try {
-        Promise.all([getAllMerchandise()]).then(([data]) => {
-            setProducts(data);
-            console.log(data);
-        });
+        Promise.all([getAllMerchandise()]).then((data) => {
+          setMerchandise(data[0]);
+       }); 
     } catch (error) {
         console.log(error);
     }
 }, []);
-
 
   return (
     <div>
     <span><h1>Products</h1></span>
     <div className={classes.root}>
         <Grid container spacing={6}>
-          {products.map((product, index) => 
+          {merchandise.map((product, index) => 
           <Grid item xs={6} sm={4}>
             <ProductCard key={index} product={product}></ProductCard>
           </Grid>
@@ -46,4 +44,4 @@ useEffect(() => {
   );
 }
 
-export default Products;
+export default ProductPage;

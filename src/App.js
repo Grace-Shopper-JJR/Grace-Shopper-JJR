@@ -13,14 +13,14 @@ import {
 import {
     Menu,
     ProductCard,
-    Products,
+    ProductPage,
     Login,
     Register
 } from './components/index';
 
 const App = () => {
 
-    const [ products, setProducts ] = useState([]);
+    const [merchandise, setMerchandise] = useState([]);
 
 
     return (
@@ -28,10 +28,15 @@ const App = () => {
             <CssBaseline>
                 <Router>
                 <Menu/>
-                    <Route exact path="/">
-                        <Products
-                            products={products}
-                            setProducts={setProducts}
+                    <Route exact path="/merchandise">
+                        <ProductPage
+                            merchandise={merchandise}
+                            setMerchandise={setMerchandise}
+                        />
+                    </Route>
+                    <Route exact path="/login">
+                        <Login 
+
                         />
                     </Route>
                 </Router>
