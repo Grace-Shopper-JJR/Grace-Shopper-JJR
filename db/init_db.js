@@ -379,13 +379,13 @@ async function createInitialWishlist() {
     };
 };
 
-async function initializeSeansStuff() {
+async function initializeJustinsStuff() {
 
     await createInitialUsers();
     await createInititialUserPrefs()
 
 
-    const catArray = ['clothing', 'climbing', 'hiking', 'sports', 'camping'];
+    const catArray = ['Contemporary', 'Pop Art', 'Cubism', 'Post-Impressionism', 'Impressionism'];
 
     const newCategory = await Promise.all(catArray.map((cat) => addCategory(cat)));
     console.log(newCategory);
@@ -415,7 +415,7 @@ async function testDB() {
         const createPayment = await createInitialPayments();
         console.log('Payment: ', createPayment);
 
-        const catArray = ['tents', 'sleeping bags', 'clothing', 'outdoor gear'];
+        const catArray = ['Contemporary', 'Pop Art', 'Cubism', 'Post-Impressionism', 'Impressionism'];
 
         const newCategory = await Promise.all(catArray.map((cat) => addCategory(cat)));
         console.log(newCategory);
@@ -442,7 +442,7 @@ async function startDb() {
         // await testDB();
         await createInitialUsers();
         await createInititialUserPrefs();
-        await initializeSeansStuff();
+        await initializeJustinsStuff();
         await createInitialWishlist();
         await createInitialPayments();
     } catch (error) {
