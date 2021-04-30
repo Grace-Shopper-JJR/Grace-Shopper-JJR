@@ -28,7 +28,7 @@ const ProductCard = (props) => {
         <CardActionArea>
             <CardMedia
             className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image={product.img_url}
             title="Contemplative Reptile"
             />
             <CardContent>
@@ -36,7 +36,7 @@ const ProductCard = (props) => {
                 {product.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-                {product.description}
+                {product.artist}
             </Typography>
             
             </CardContent>

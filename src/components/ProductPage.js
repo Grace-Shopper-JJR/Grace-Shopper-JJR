@@ -10,6 +10,7 @@ import ProductCard from './ProductCard';
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
+    padding: 20,
   },
 });
 
@@ -30,7 +31,7 @@ useEffect(() => {
 
   return (
     <div>
-    <span><h1>Products</h1></span>
+    <span><h1>Pieces for Sale</h1></span>
     <div className={classes.root}>
         <Grid container spacing={6}>
           {merchandise.map((product, index) => 

@@ -152,17 +152,16 @@ async function addCategory(name) {
     }
 }
 
-async function createMerchandise({ name, description,
-    price, rating = 5, cat }) {
+async function createMerchandise({ img, name, artist, price, rating = 5, cat }) {
 
     try {
 
         console.log('Entered db createMerchandise');
         const { rows: [merchandise] } = await client.query(`
-            INSERT INTO merchandise(name, description, price, rating, cats)
-            VALUES($1, $2, $3, $4, $5 )
+            INSERT INTO merchandise(img_url, name, artist, price, rating, cats)
+            VALUES($1, $2, $3, $4, $5, $6)
             RETURNING *;
-        `, [name, description, price, rating, cat]);
+        `, [img, name, artist, price, rating, cat]);
         console.log('Successfully created merchandise');
         return merchandise;
     } catch (error) {

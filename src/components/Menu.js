@@ -29,7 +29,8 @@ export default function SimpleMenu({loggedIn}) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}><Link to="/" className='routeLinks'>Home</Link></MenuItem>
-        <MenuItem onClick={handleClose}><Link to="/Products" className='Products'>Products</Link></MenuItem>
+        <MenuItem onClick={handleClose}><Link to="/merchandise" className='Products'>Art</Link></MenuItem>
+        <MenuItem onClick={handleClose}><Link to="/" className='routeLinks'>About Us</Link></MenuItem>
         {loggedIn ? <MenuItem onClick={handleClose}><Link to="/Cart" className='routeLinks'>My Cart</Link></MenuItem> : ''}
         
       </Menu>
