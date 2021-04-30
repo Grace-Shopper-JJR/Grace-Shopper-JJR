@@ -1,49 +1,40 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext } from 'react';
+import ProductItem from './ProductItem';
+import { ProductsContext } from '../services/ProductsContext';
+import styles from './store.css';
 
-import Grid from '@material-ui/core/Grid';
-import { useEffect } from 'react';
-import { getAllMerchandise } from '../../routes';
-import ProductCard from './ProductCard';
+const Products = () => {
 
+    const { products} = useContext(ProductsContext)
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-});
+    return ( 
+        <div className={styles.store}>
+            <div className="row">
+                <div className="col-sm-8">
+                    <div className="py-3">
+                        {products.length} Products
+                    </div>
+                </div>
+                <div className="col-sm-4">
+                    <div className="form-group">
+                        <input type="text" name="" placeholder="Search product" className="form-control" id=""/>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.store}>
 
-const Products = ({products, setProducts}) => {
+                {
+                    products.map(product => (
+                        <ProductItem key={product.id} product={product}/>
+                    ))
+                }
 
-const classes = useStyles();
+            </div>
+            <div className={styles.store}>
 
-
-useEffect(() => {
-    try {
-        Promise.all([getAllMerchandise()]).then(([data]) => {
-            setProducts(data);
-            console.log(data);
-        });
-    } catch (error) {
-        console.log(error);
-    }
-}, []);
-
-
-  return (
-    <div>
-    <span><h1>Products</h1></span>
-    <div className={classes.root}>
-        <Grid container spacing={6}>
-          {products.map((product, index) => 
-          <Grid item xs={6} sm={4}>
-            <ProductCard key={index} product={product}></ProductCard>
-          </Grid>
-          )}
-        </Grid>
-    </div> 
-    </div>
-  );
+            </div>
+        </div>
+     );
 }
-
+ 
 export default Products;

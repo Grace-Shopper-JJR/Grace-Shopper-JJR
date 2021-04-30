@@ -1,56 +1,42 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../contexts/CartContext';
+import { formatNumber } from '../../helpers/utils';
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 140,
-  },
-});
+const ProductItem = ({product}) => {
 
-const ProductCard = (props) => {
+    const { addProduct, cartItems, increase } = useContext(CartContext);
 
-    const { product } = props;
-
-    const classes = useStyles();
-
-    return (
-        <Card className={classes.root}>
-        <CardActionArea>
-            <CardMedia
-            className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="Contemplative Reptile"
-            />
-            <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-                Lizard
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                across all continents except Antarctica
-            </Typography>
-            </CardContent>
-        </CardActionArea>
-        <CardActions>
-            <Button size="small" color="primary">
-            Share
-            </Button>
-            <Button size="small" color="primary">
-            Learn More
-            </Button>
-        </CardActions>
-        </Card>
-    );
+    const isInCart = product => {
+        return !!cartItems.find(item => item.id === product.id);
     }
 
-export default ProductCard;
+    return ( 
+        <div className="card card-body">
+            <img style={{display: "block", margin: "0 auto 10px", maxHeight: "200px"}} className="img-fluid" 
+            src={product.photo + '?v=' + product.id} alt=""/>
+            <p>{product.name}</p>
+            <h3 className="text-left">{formatNumber(product.price)}</h3>
+            <div className="text-right">
+                <Link  to="/" className="btn btn-link btn-sm mr-2">Details</Link>
+
+                {
+                    isInCart(product) && 
+                    <button 
+                    onClick={() => increase(product)}
+                    className="btn btn-outline-primary btn-sm">Add more</button>
+                }
+
+                {
+                    !isInCart(product) && 
+                    <button 
+                    onClick={() => addProduct(product)}
+                    className="btn btn-primary btn-sm">Add to cart</button>
+                }
+                
+            </div>
+        </div>
+     );
+}
+ 
+export default ProductItem;
