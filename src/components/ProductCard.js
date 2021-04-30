@@ -38,15 +38,19 @@ const ProductCard = (props) => {
             <Typography variant="body2" color="textSecondary" component="p">
                 {product.description}
             </Typography>
+            
             </CardContent>
         </CardActionArea>
         <CardActions>
             <Button size="small" color="primary">
-            Share
+            Purchase
             </Button>
             <Button size="small" color="primary">
             Learn More
             </Button>
+            <Typography variant="body2" color="textSecondary" component="p" >
+                {product.price}
+            </Typography>
         </CardActions>
         </Card>
     );
