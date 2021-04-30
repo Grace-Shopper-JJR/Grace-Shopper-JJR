@@ -1,7 +1,5 @@
 const { Client } = require('pg');
 
-const chalk = require('chalk');
-
 const DB_Name = 'Grace-Shopper-JJR';
 
 const client = new Client({

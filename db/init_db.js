@@ -18,7 +18,6 @@ const {
     updateUserPreferences,
     getUserPreferencesByUserId,
     createPayment,
-    createBlog,
     createWishListByUserId,
     getWishListByUserId,
 
@@ -95,7 +94,7 @@ async function createTables() {
                 merch_id SERIAL PRIMARY KEY,
                 name VARCHAR(255) NOT NULL,
                 description TEXT NOT NULL,
-                price NUMERIC NOT NULL,
+                price MONEY NOT NULL,
                 rating INTEGER,
                 cats INTEGER REFERENCES categories(cat_id)
                 
@@ -198,31 +197,53 @@ async function createTables() {
 
 };
 
-async function initializeMerchandise() {
-    for (let index = 0; index < 5; index++) {
-        const merch = await createMerchandise({ name: faker.hacker.ingverb(), description: faker.hacker.phrase(), price: faker.random.number(), cat: 1 });
-
-        const review = await createMerchandiseReview(index + 1, 1, 5, faker.hacker.phrase());
+async function createInitialMerchandise() {
+    try {
+      console.log('Starting to create merchandise...');
+  
+      const merchandiseToCreate = [
+        { name: 'FemmeDansUnFauteuil', category: 'Cubism', description: '1943 Original Picasso Lithograph.', price: '1025', rating: '10' },
+        { name: 'Weeping Woman', category: 'Cubism', description: 'Old Master Signed Picasso 1962', price: '2542', rating: '10' },
+        { name: 'Figure of a Woman', category: 'Cubism', description: 'Juan Gris.', price: '132', rating: '8' },
+        { name: 'Three Women', category: 'Cubism', description: 'FernandLeger', price: '108', rating: '6' },
+        { name: 'The Knife Grinder', category: 'Cubism', description: 'KazimirSeverinovichMalevich', price: '101', rating: '10' },
+        { name: 'Symphony', category: 'Cubism', description: 'Michail Menkov', price: '101', rating: '9' },
+        { name: 'The Confetti Garden', category: 'Impressionism', description: 'Jinlu', price: '1976', rating: '8' },
+        { name: 'Impressionist Lake Scene', category: 'Impressionism', description: 'John Clymer', price: '975', rating: '10' },
+        { name: 'Impressionist French Landscape', category: 'Impressionism', description: 'Unknown', price: '750', rating: '7' },
+        { name: 'Spring in Central Park', category: 'Impressionism', description: 'Natasha Kramskaya', price: '725', rating: '10' },
+        { name: 'Signed Original Street Scene Paris', category: 'Impressionism', description: 'Unknown', price: '695', rating: '9' },
+        { name: 'Floral Landscape Flower Fields IV', category: 'Impressionism', description: 'Michael Budden', price: '600', rating: '10' },
+        { name: 'Cash Owns Everything Around Me', category: 'Popart', description: 'ResatioAdiPutra', price: '250', rating: '10' },
+        { name: 'Massive Stars Collapse III', category: 'Popart', description: 'ResatioAdiPutra', price: '58', rating: '8' },
+        { name: 'PissOff', category: 'Popart', description: 'JirapatTatsanasomboon', price: '13000', rating: '10' },
+        { name: 'DesireIngrained', category: 'Popart', description: 'JirapatTatsanasomboon', price: '13000', rating: '9' },
+        { name: 'SilaturahmiGorillaGlass', category: 'Popart', description: 'HendraHeheHarsono', price: '3000', rating: '7' },
+        { name: 'CapitalNoise', category: 'Popart', description: 'HendraHeheHarsono', price: '5000', rating: '10' },
+        { name: 'The River Seine', category: 'PostImpressionalism', description: 'Adolph Clary Baroux', price: '28500', rating: '9' },
+        { name: 'Ballerinas Paris Opera', category: 'PostImpressionalism', description: 'Jean Louis Marcel Cosson', price: '13605', rating: '10' },
+        { name: 'Early Morning Hyde Park London', category: 'PostImpressionalism', description: 'Elliott Seabrooke', price: '7396', rating: '7' },
+        { name: 'Cafe Porto Fino Italy', category: 'PostImpressionalism', description: 'Forrest Hewit', price: '5973', rating: '10' },
+        { name: 'Village in Mexico', category: 'PostImpressionalism', description: 'JacquesZucker', price: '5250', rating: '9' },
+        { name: 'Rural Farm Scene', category: 'PostImpressionalism', description: 'Ludvig Jaconbsen', price: '4800', rating: '10' },
+        { name: 'Contemporary1', category: 'Contemporary', description: 'A Contemporary Artpiece.', price: '675', rating: '10' },
+        { name: 'Contemporary2', category: 'Contemporary', description: 'A Contemporary Artpiece.', price: '649', rating: '6' },
+        { name: 'Contemporary3', category: 'Contemporary', description: 'A Contemporary Artpiece.', price: '659', rating: '8' },
+        { name: 'Contemporary4', category: 'Contemporary', description: 'A Contemporary Artpiece.', price: '685', rating: '5' },
+        { name: 'Contemporary5', category: 'Contemporary', description: 'A Contemporary Artpiece.', price: '166', rating: '9' },
+        { name: 'Contemporary6', category: 'Contemporary', description: 'A Contemporary Artpiece.', price: '399', rating: '7' }
+      ]
+      const merchandise = await Promise.all(merchandiseToCreate.map(createMerchandise));
+  
+      console.log('merchandise created:');
+      console.log(merchandise);
+  
+      console.log('Finished creating merchandise!');
+    } catch (error) {
+      console.error('Error creating merchandise!');
+      throw error;
     }
-
-    for (let index = 0; index < 5; index++) {
-        const merch = await createMerchandise({ name: faker.hacker.ingverb(), description: faker.hacker.phrase(), price: faker.random.number(), cat: 2 });
-
-        const review = await createMerchandiseReview(index + 1, 1, 5, faker.hacker.phrase());
-    }
-
-    for (let index = 0; index < 5; index++) {
-        const merch = await createMerchandise({ name: faker.hacker.ingverb(), description: faker.hacker.phrase(), price: faker.random.number(), cat: 3 });
-
-        const review = await createMerchandiseReview(index + 1, 1, 5, faker.hacker.phrase());
-    }
-
-    for (let index = 0; index < 5; index++) {
-        const merch = await createMerchandise({ name: faker.hacker.ingverb(), description: faker.hacker.phrase(), price: faker.random.number(), cat: 4 });
-
-        const review = await createMerchandiseReview(index + 1, 1, 5, faker.hacker.phrase());
-    }
-}
+  }
 
 async function createInitialUsers() {
 
@@ -391,7 +412,7 @@ async function initializeJustinsStuff() {
     console.log(newCategory);
 
 
-    await initializeMerchandise();
+    // await initializeMerchandise();
 }
 
 async function testDB() {
@@ -421,7 +442,7 @@ async function testDB() {
         console.log(newCategory);
 
 
-        await initializeMerchandise();
+        // await initializeMerchandise();
         await updateMerchandise(2, { price: 5, description: faker.company.catchPhrase });
         await createMerchandiseReview(2, 1, 5, 'I have no idea what this is or why I bought it...');
         await getAllMerchandise();
@@ -440,9 +461,14 @@ async function startDb() {
         await dropTables();
         await createTables();
         // await testDB();
+        await createInitialMerchandise();
         await createInitialUsers();
         await createInititialUserPrefs();
+<<<<<<< HEAD
         await initializeJustinsStuff();
+=======
+        // await initializeSeansStuff();
+>>>>>>> 601aa107d672c143a751d299fc23ca8567c495a0
         await createInitialWishlist();
         await createInitialPayments();
     } catch (error) {

@@ -1,13 +1,26 @@
 const client = require('./client_db');
 
-async function getAllMerchandise() {
-    const { rows: merchIds } = await client.query(`
-        SELECT merch_id FROM merchandise;
-    `)
-    console.log(merchIds);
-    const merchandise = await Promise.all(merchIds.map((item) => getMerchandiseById(item.merch_id)))
+// async function getAllMerchandise() {
+//     const { rows: merchIds } = await client.query(`
+//         SELECT merch_id FROM merchandise;
+//     `)
+//     console.log(merchIds);
+//     const merchandise = await Promise.all(merchIds.map((item) => getMerchandiseById(item.merch_id)))
 
-    return merchandise;
+//     return merchandise;
+// }
+
+async function getAllMerchandise() {
+    try {
+        const { rows: products } = await client.query(`
+        SELECT * FROM merchandise;
+        `)
+
+        return products;
+
+    } catch (error) {
+        throw error;
+    }
 }
 
 async function getMerchandiseByName(merchName) {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { register } from "../api/index";
+import { registerUser } from "../api/index";
 
 const Register = ({
   username,
@@ -27,7 +27,7 @@ const Register = ({
   const fetchApi = async (event) => {
     event.preventDefault();
     try {
-      const data = await register(username, password);
+      const data = await registerUser(username, password);
       if (data.error) {
         alert("Error Registering User");
       } else {
@@ -78,9 +78,9 @@ const Register = ({
           <button type="submit" className="submitBtn">
             Submit
           </button>
-          <Link to="/Login" className="routeLinks">
+          {/* <Link to="/Login" className="routeLinks">
             Already have an account? Login here
-          </Link>
+          </Link> */}
         </div>
       </form>
     </div>

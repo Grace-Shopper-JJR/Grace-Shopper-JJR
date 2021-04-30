@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
+// import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from './theme'
@@ -11,23 +11,49 @@ import {
 } from 'react-router-dom';
 
 import {
+    Menu,
     ProductCard,
-    Products
-} from './index';
+    ProductPage,
+    Login,
+    Register
+} from './components/index';
 
 const App = () => {
 
-    const [ products, setProducts ] = useState([]);
+    const [merchandise, setMerchandise] = useState([]);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [userToken, setUserToken] = useState('');
+    const [loggedIn, setLoggedIn] = useState('');
 
 
     return (
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
             <CssBaseline>
                 <Router>
-                    <Route exact path="/">
-                        <Products
-                            products={products}
-                            setProducts={setProducts}
+                <Menu/>
+                    <Route exact path="/register">
+                        <Register 
+                            username={username}
+                            setUsername={setUsername}
+                            password={password}
+                            setPassword={setPassword}
+                            userToken={userToken}
+                            setUserToken={setUserToken}
+                            setLoggedIn={setLoggedIn}
+                            loggedIn={loggedIn}
+                            // history
+                        />
+                    </Route>
+                    <Route exact path="/merchandise">
+                        <ProductPage
+                            merchandise={merchandise}
+                            setMerchandise={setMerchandise}
+                        />
+                    </Route>
+                    <Route exact path="/login">
+                        <Login 
+
                         />
                     </Route>
                 </Router>

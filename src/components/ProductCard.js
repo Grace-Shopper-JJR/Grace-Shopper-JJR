@@ -20,12 +20,38 @@ const ProductItem = ({product}) => {
             <div className="text-right">
                 <Link  to="/" className="btn btn-link btn-sm mr-2">Details</Link>
 
-                {
-                    isInCart(product) && 
-                    <button 
-                    onClick={() => increase(product)}
-                    className="btn btn-outline-primary btn-sm">Add more</button>
-                }
+    return (
+        <Card className={classes.root}>
+        <CardActionArea>
+            <CardMedia
+            className={classes.media}
+            image="/static/images/cards/contemplative-reptile.jpg"
+            title="Contemplative Reptile"
+            />
+            <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+                {product.name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+                {product.description}
+            </Typography>
+            
+            </CardContent>
+        </CardActionArea>
+        <CardActions>
+            <Button size="small" color="primary">
+            Purchase
+            </Button>
+            <Button size="small" color="primary">
+            Learn More
+            </Button>
+            <Typography variant="body2" color="textSecondary" component="p" >
+                {product.price}
+            </Typography>
+        </CardActions>
+        </Card>
+    );
+    }
 
                 {
                     !isInCart(product) && 

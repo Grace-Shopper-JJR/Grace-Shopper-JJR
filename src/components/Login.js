@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { login } from "../api/index";
-import { getMyCart } from "../api/index";
+import { loginUser } from "../api/index";
+// import { getMyCart } from "../api/index";
 
 const Login = ({
   username,
@@ -16,7 +16,7 @@ const Login = ({
   const fetchApi = async (event) => {
     event.preventDefault();
     try {
-      const data = await login(username, password);
+      const data = await loginUser(username, password);
       if (data.error) {
         alert("Incorrect Credentials");
       } else {
@@ -65,9 +65,9 @@ const Login = ({
           />
           <div className='submitRegister'>
           <button type="submit" className="submitBtn">Submit</button>
-          <Link to="/Register" className="routeLinks">
+          {/* <Link to="/Register" className="routeLinks">
             Dont have an account? Register here
-          </Link>
+          </Link> */}
           </div>
         </form>
       </div>
