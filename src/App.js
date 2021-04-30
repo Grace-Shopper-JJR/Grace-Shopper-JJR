@@ -21,6 +21,10 @@ import {
 const App = () => {
 
     const [merchandise, setMerchandise] = useState([]);
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [userToken, setUserToken] = useState('');
+    const [loggedIn, setLoggedIn] = useState('');
 
 
     return (
@@ -28,6 +32,19 @@ const App = () => {
             <CssBaseline>
                 <Router>
                 <Menu/>
+                    <Route exact path="/register">
+                        <Register 
+                            username={username}
+                            setUsername={setUsername}
+                            password={password}
+                            setPassword={setPassword}
+                            userToken={userToken}
+                            setUserToken={setUserToken}
+                            setLoggedIn={setLoggedIn}
+                            loggedIn={loggedIn}
+                            // history
+                        />
+                    </Route>
                     <Route exact path="/merchandise">
                         <ProductPage
                             merchandise={merchandise}
