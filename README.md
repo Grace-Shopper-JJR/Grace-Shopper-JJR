@@ -1,9 +1,9 @@
 # Grace-Shopper-JJR
-UI/Styling -Joe Jumber / Justin Grassler
-DB - Justin Grassler / Joe Jumber
-Components - Justin Grassler / Joe Jumber / Rob Peeples
-API - Justin Grassler / Joe Jumber / Rob Peeples
-Images - Justin Grassler
+UI/Styling -Joe Jumber / Justin Grassler ----
+DB - Justin Grassler / Joe Jumber ----
+Components - Justin Grassler / Joe Jumber / Rob Peeples ----
+API - Justin Grassler / Joe Jumber / Rob Peeples ----
+Images - Justin Grassler ----
 Routes - Joe Jumber / Justin Grassler
 
 
