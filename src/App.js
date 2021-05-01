@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 // import ReactDOM from 'react-dom';
-import { ThemeProvider } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
+import { MuiThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import theme from './theme'
 
@@ -11,6 +12,7 @@ import {
 } from 'react-router-dom';
 
 import {
+    Navbar,
     Menu,
     ProductCard,
     ProductPage,
@@ -20,6 +22,15 @@ import {
 
 const App = () => {
 
+    const useStyles = makeStyles({
+        root: {
+          flexGrow: 1,
+          maxWidth: 1500,
+        },
+      });
+      
+    const classes = useStyles();
+
     const [merchandise, setMerchandise] = useState([]);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -28,10 +39,14 @@ const App = () => {
 
 
     return (
-        <ThemeProvider theme={theme}>
+        <MuiThemeProvider theme={theme}>
             <CssBaseline>
-                <Router>
-                <Menu/>
+                <Router className={classes.root}>
+                    <div className="app" 
+                    style={{ padding: '20px'   
+                    }}
+                    >
+                <Navbar/>
                     <Route exact path="/register">
                         <Register 
                             username={username}
@@ -56,9 +71,10 @@ const App = () => {
 
                         />
                     </Route>
+                    </div>
                 </Router>
             </CssBaseline>
-        </ThemeProvider>
+        </MuiThemeProvider>
 
     )
 

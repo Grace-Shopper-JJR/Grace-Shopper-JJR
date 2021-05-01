@@ -4,15 +4,15 @@ const theme = createMuiTheme({
   palette: {
     primary: {
       light: '#b6ffff',
-      main: '#81d4fa',
-      dark: '#4ba3c7',
-      contrastText: '#455a64',
+      main: '#df7332',
+      dark: '#1E7827',
+      contrastText: '#000000',
     },
     secondary: {
-      light: '#ff9888',
-      main: '#ff665b',
-      dark: '#c63231',
-      contrastText: '#fafafa',
+      light: '#C71212',
+      main: '#155de9',
+      dark: '#0035b6',
+      contrastText: '#C7C7C7',
     },
     overrides: {
         MuiCssBaseline: {

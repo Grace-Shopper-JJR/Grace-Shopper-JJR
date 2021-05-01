@@ -25,7 +25,7 @@ const ProductItem = ({product}) => {
         <CardActionArea>
             <CardMedia
             className={classes.media}
-            image="/static/images/cards/contemplative-reptile.jpg"
+            image={product.img_url}
             title="Contemplative Reptile"
             />
             <CardContent>
@@ -33,7 +33,7 @@ const ProductItem = ({product}) => {
                 {product.name}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-                {product.description}
+                {product.artist}
             </Typography>
             
             </CardContent>
